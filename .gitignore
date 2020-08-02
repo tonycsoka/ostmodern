@@ -5,3 +5,4 @@
 .pytest_cache
 venv
 venv_prod
+omdb/data
