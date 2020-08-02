@@ -31,3 +31,12 @@ and for production
 ```zsh
 $> pip install -r requirements.txt
 ```
+
+## Running
+
+To download all the data run the following
+
+```zsh
+$> cd omdb
+$> python getalldata.py
+```
