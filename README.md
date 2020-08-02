@@ -1,6 +1,10 @@
 # Introduction
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+![GitHub issues](https://img.shields.io/github/issues/tonycsoka/ostmodern)
+![Python Version](https://img.shields.io/badge/python-3.8-blue)
 
-For an overview of this coding task see the [instrucions provided by OST Modern](README-OSTModern.md)
+
+For an overview of this coding task see the [instrucions provided by OST Modern](README-OSTModern.md) 
 
 ## Instructions
 
@@ -14,6 +18,14 @@ $> source venv/bin/activate
 ```
 
 Next, install any required packages using pip
+
+For development use
+
+```zsh
+$> pip install -r requirements-dev.txt
+```
+
+and for production
 
 ```zsh
 $> pip install -r requirements.txt
