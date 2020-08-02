@@ -7,6 +7,7 @@ from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 
 OMDB_API_KEY = os.getenv("OMDB_API_KEY", "")
+DATA_DIR = os.getenv("DATA_DIR", "data")
 
 
 def omdbkeyrequired(func):
