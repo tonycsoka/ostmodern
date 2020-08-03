@@ -6,9 +6,9 @@ services:
       - database
 
   # sample NoSQL db
-  database:
+  dynamodb:
     image: amazon/dynamodb-local
 
   # sample RDBMS
-  # database:
-  #  image: postgres
+  postgres:
+    image: postgres
