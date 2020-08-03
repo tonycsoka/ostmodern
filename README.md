@@ -57,6 +57,8 @@ A key value store is almost the same as a document store in terms of ease, howev
 
 ### Relational Database
 
-A relation database would have the benefit of being structured in such a way as to only store the information needed for the end users, however and change in the upstream system could result in serious downtimes, or loss of data.  When it comes to storing extra information (for example comments), then a relational database makes sense, however this does not rule out using a hybrid system, for example, document store for `static` data, and a relationl db for `comments`
+A relation database would have the benefit of being structured in such a way as to only store the information needed for the end users, however and change in the upstream system could result in serious downtimes, or loss of data.  When it comes to storing extra information (for example comments), then a relational database makes sense, however this does not rule out using a hybrid system, for example, document store for `static` data, and a relational db for `comments`
 
 Taking this a step further, a document store can be used for the raw static data, which is transformed and cached (either lazily or on a timed trigger) to a key-value store.
+
+This is the approach that we'll take here, storing the raw data in a document store, and then serving to the API via a key-value store.
