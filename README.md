@@ -32,7 +32,7 @@ and for production
 $> pip install -r requirements.txt
 ```
 
-## Running
+## Downloading data
 
 To download all the data run the following
 
@@ -40,3 +40,23 @@ To download all the data run the following
 $> cd omdb
 $> python getalldata.py
 ```
+
+This will write the downloaded files to an output directory under `omdb`, as specified by the env var `DATA_DIR`, which defaults to `data`.
+
+## Schema
+
+The options schema wise are to keep the data in json format and store in a document database, turning the data into a relational schema, or storing the data against a key in a key-value database.
+
+### Document Store
+
+In terms of storing the data as downloaded, this is by far the easiest option, as the data can be stored as is without a though to structure.  The work comes in parsing the data for consumption by the API.  The benefits of this are that we are imune to any changes upstream in tems of grabbing data, which would be important if at any stage we would want to store a history of data (for instance, to track changes in ratings).  The downside, is that all the processing to return only the data the end user is interested in happens in the API, so performance will take a small hit.
+
+### Key Value Store
+
+A key value store is almost the same as a document store in terms of ease, however there is a small risk that the document structure could change such that extracting the key from each document would throw an exception.
+
+### Relational Database
+
+A relation database would have the benefit of being structured in such a way as to only store the information needed for the end users, however and change in the upstream system could result in serious downtimes, or loss of data.  When it comes to storing extra information (for example comments), then a relational database makes sense, however this does not rule out using a hybrid system, for example, document store for `static` data, and a relationl db for `comments`
+
+Taking this a step further, a document store can be used for the raw static data, which is transformed and cached (either lazily or on a timed trigger) to a key-value store.
