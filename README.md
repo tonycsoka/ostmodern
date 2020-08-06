@@ -61,4 +61,4 @@ A relation database would have the benefit of being structured in such a way as 
 
 Taking this a step further, a document store can be used for the raw static data, which is transformed and cached (either lazily or on a timed trigger) to a key-value store.
 
-This is the approach that we'll take here, storing the raw data in a document store, and then serving to the API via a key-value store.
+For this task, in retrospect, we'll go for a relational model, performimg ETL as a one off task for now.
