@@ -1,14 +1,22 @@
 version: "3.5"
 services:
-  python-code-test:
-    image: ostmodern/python-code-test:latest
-    links:
-      - database
+  #python-code-test:
+  #  image: ostmodern/python-code-test:latest
+  #  links:
+  #    - database
 
   # sample NoSQL db
-  database:
-    image: amazon/dynamodb-local
+  # dynamodb:
+  #   image: amazon/dynamodb-local
 
   # sample RDBMS
-  # database:
-  #  image: postgres
+  postgres:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports: 
+      - 5432:5432
+
+  
